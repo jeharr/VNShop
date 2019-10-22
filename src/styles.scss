@@ -1,0 +1,112 @@
+@mixin button() {
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px rgba(68, 68, 68, 0.6);
+  font-size: 20px;
+  text-align: center;
+  margin: 10px 3px 3px 3px;
+  padding: 2px;
+  cursor: pointer;
+}
+body {
+  background-color: #fefafc;
+  margin: 0;
+}
+.navbar {
+  display: flex;
+  background-color: rgb(135, 189, 247);
+  padding: 20px;
+  font-size: 30px;
+  justify-content: space-between;
+  .nav-shop {
+    align-self: left;
+  }
+  .nav-cart {
+    align-self: right;
+  }
+}
+.catalog {
+  display: grid;
+  padding: 20px 100px 100px 100px;
+  grid-gap: 10px;
+  box-shadow: 3px 3px 3px rgba(68, 68, 68, 0.6);
+  grid-template-columns: auto auto auto auto;
+}
+
+.product {
+  padding: 5px;
+  box-shadow: 3px 3px 3px rgba(68, 68, 68, 0.6);
+  background-color: #ebe7e7;
+  text-align: left;
+  font-size: 1.5em;
+  .add-qty {
+    display: flex;
+    justify-content: space-between;
+    .available {
+      @include button();
+      &:hover {
+        background-color: rgb(175, 242, 175);
+      }
+    }
+    .unavailable {
+      @include button();
+      &:hover {
+        background-color: rgb(245, 149, 149);
+      }
+    }
+  }
+}
+
+.cart {
+  padding: 20px 100px 100px 100px;
+  height: 1000px;
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2em;
+    border-bottom: solid 1px rgba(68, 68, 68, 0.6);
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    text-align: left;
+    font-size: 1.5em;
+    border-bottom: solid 1px rgba(68, 68, 68, 0.6);
+    .product-info {
+      padding: 2px;
+    }
+    .line-amount {
+      padding: 2px;
+    }
+    .qty {
+      padding: 2px;
+    }
+    .remove {
+      padding: 5px;
+      font-size: 0.7em;
+      cursor: pointer;
+      border: solid 1px black;
+      border-radius: 5px;
+      background-color: rgb(245, 175, 175);
+    }
+  }
+  .cart-remove-all {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    .remove-all-button {
+      @include button();
+      &:hover {
+        background-color: rgb(245, 149, 149);
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .catalog {
+    grid-template-columns: auto;
+  }
+}
