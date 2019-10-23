@@ -31,4 +31,5 @@ verify that the cart qty and subtotal reflect the change from the line removal
 click empty cart at the bottom
 verify that all lineitems have been removed and that the cart qty has been set back to 0 and the subtotal back to 0.00
 
+(note: you may have to scroll up in the cart view to see the navbar)
 If there are any further questions or issues, you can reach me at jeff.w.harrison86@gmail.com
