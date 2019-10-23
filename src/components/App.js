@@ -1,5 +1,9 @@
+// top-level App component. This Render wraps all other components withing the Context Provider
+// which gives nested components access to the application state and the render also nests
+// Catalog and Cart Components within a Router
+
 import React, { useState, useEffect } from "react";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import appState from "../application-state";
 import AppContext from "../app-context";
 import Catalog from "./Catalog";
@@ -11,6 +15,7 @@ const API_URL =
 const App = () => {
   const [state, setState] = useState(appState);
 
+  // fetches api data when App Component is mounted and sets it to appState
   useEffect(() => {
     fetch(API_URL).then(res => {
       res.json().then(data => {

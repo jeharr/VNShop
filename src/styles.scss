@@ -1,3 +1,6 @@
+// Some basic layout and styling. If given more time, I would have put more attention here
+// but I aimed to keep things basic and functional.
+
 @mixin button() {
   background-color: white;
   border: solid 1px black;
@@ -6,7 +9,7 @@
   font-size: 20px;
   text-align: center;
   margin: 10px 3px 3px 3px;
-  padding: 2px;
+  padding: 5px;
   cursor: pointer;
 }
 body {
@@ -30,7 +33,6 @@ body {
   display: grid;
   padding: 20px 100px 100px 100px;
   grid-gap: 10px;
-  box-shadow: 3px 3px 3px rgba(68, 68, 68, 0.6);
   grid-template-columns: auto auto auto auto;
 }
 
@@ -104,9 +106,23 @@ body {
     }
   }
 }
+@media (max-width: 1000px) {
+  .catalog {
+    grid-template-columns: auto auto;
+  }
+}
 
 @media (max-width: 650px) {
+  .navbar {
+    font-size: 22px;
+  }
   .catalog {
     grid-template-columns: auto;
+  }
+  .catalog {
+    padding: 20px;
+  }
+  .cart {
+    padding: 20px;
   }
 }

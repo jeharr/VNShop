@@ -1,16 +1,20 @@
+//Parent Component: Cart.js
+//LineItem view. shows line item information and the ability to remove the line from the cart
+
 import React, { useContext } from "react";
 import AppContext from "../app-context";
 
 const CartItem = ({ id, name, price, qty }) => {
   const [state, setState] = useContext(AppContext);
-  const linePrice = (+price * qty).toFixed(2);
+  const lineAmount = (+price * qty).toFixed(2);
+
   return (
     <div className="cart-item">
       <div className="item-details">
         <div className="product-info">
-          {name} - ${price}
+          {name} - ${price} ea
         </div>
-        <div className="line-amount">Line Amount: ${linePrice}</div>
+        <div className="line-amount">Line Amount: ${lineAmount} </div>
       </div>
       <div>
         <div
@@ -27,6 +31,8 @@ const CartItem = ({ id, name, price, qty }) => {
   );
 };
 
+// creates new qtyTotal and subtotal adjusting for the price and qty of the item being removed
+// deletes item from cart object in appstate
 const removeItemFromCart = (state, setState, id, price, qty) => {
   const { cart, qtyTotal, subtotal } = state;
   const newSubtotal = ((+subtotal * 100 - +price * 100 * qty) * 0.01).toFixed(
@@ -40,6 +46,5 @@ const removeItemFromCart = (state, setState, id, price, qty) => {
     qtyTotal: newQtyTotal,
     subtotal: newSubtotal
   }));
-  console.log(newSubtotal);
 };
 export default CartItem;
